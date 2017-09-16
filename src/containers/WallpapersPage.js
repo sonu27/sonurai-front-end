@@ -42,14 +42,11 @@ class WallpapersPage extends Component {
       }
     )
 
-    const pagination = <Pagination pagination={this.state.pagination} handlePageChange={this.handlePageChange}/>
-
-
     return (
       <div>
         <h1 className="title">Wallpapers - Page {this.state.pagination.current}</h1>
         {wallpapers}
-        {pagination}
+        <Pagination pagination={this.state.pagination} handlePageChange={this.handlePageChange}/>
       </div>
     )
   }

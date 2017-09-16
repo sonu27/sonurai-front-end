@@ -1,18 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Wallpaper extends Component {
+const Wallpaper = ({name, desc}) => {
+  const imgSrc = `https://sonurai.com/wallpaper/${name}_th.jpg`
 
-  render() {
-    const imgSrc = `https://sonurai.com/wallpaper/${this.props.name}_th.jpg`
-    return (
-      <div className="wallpaper">
-        <p>
-          <img className="img-fluid" src={imgSrc} alt={this.props.desc}/>
-        </p>
-        <p>{this.props.desc}</p>
-      </div>
-    )
-  }
+  return (
+    <div className="wallpaper">
+      <p>
+        <img className="img-fluid" src={imgSrc} alt={desc}/>
+      </p>
+      <p>{desc}</p>
+    </div>
+  )
 }
 
 export default Wallpaper

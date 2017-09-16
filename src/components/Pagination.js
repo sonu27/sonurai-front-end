@@ -1,15 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Pagination extends Component {
-  render() {
-    return (
-      <ul className="pagination">
-        <li><button value={this.props.pagination.prev} onClick={this.props.handlePageChange}>{this.props.pagination.prev}</button></li>
-        <li><button value={this.props.pagination.current} onClick={this.props.handlePageChange}>{this.props.pagination.current}</button></li>
-        <li><button value={this.props.pagination.next} onClick={this.props.handlePageChange}>{this.props.pagination.next}</button></li>
-      </ul>
-    )
-  }
-}
+const Pagination = ({pagination, handlePageChange}) => (
+  <ul className="pagination">
+    <li><button value={pagination.prev} onClick={handlePageChange}>{pagination.prev}</button></li>
+    <li><button value={pagination.current} onClick={handlePageChange}>{pagination.current}</button></li>
+    <li><button value={pagination.next} onClick={handlePageChange}>{pagination.next}</button></li>
+  </ul>
+)
 
 export default Pagination

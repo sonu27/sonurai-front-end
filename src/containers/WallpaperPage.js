@@ -30,6 +30,7 @@ class WallpaperPage extends Component {
 
     return (
       <div>
+        <button onClick={() => this.props.history.goBack()}>Back</button>
         <h1 className="title">{this.state.wallpaper.desc}</h1>
         <img className="img-fluid" src={imgSrc} alt={this.state.wallpaper.desc}/>
         <p>{this.state.wallpaper.date}</p>

@@ -23,8 +23,6 @@ const About = () => (
   </div>
 )
 
-const Wallpapers = WallpapersPage
-
 const Contact = () => (
   <div>
     <h2>Contact</h2>
@@ -50,9 +48,10 @@ const App = () => (
       </nav>
 
       <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
-      <Route path="/contact" component={Contact}/>
-      <Route path="/bingwallpapers" component={Wallpapers}/>
+      <Route exact path="/about" component={About}/>
+      <Route exact path="/contact" component={Contact}/>
+      <Route exact path="/bingwallpapers" render={props => <WallpapersPage {...props}/>}/>
+      <Route exact path="/bingwallpapers/page/:page" render={props => <WallpapersPage {...props}/>}/>
     </div>
   </Router>
 )

@@ -7,11 +7,7 @@ class WallpapersPage extends Component {
     super(props)
 
     this.state = {
-      pagination: {
-        'prev': 0,
-        'current': 1,
-        'next': 2
-      },
+      pagination: {},
       wallpapers: []
     }
 
@@ -19,7 +15,11 @@ class WallpapersPage extends Component {
   }
   
   componentDidMount() {
-    this.fetchWallpapersAndSetState()
+    if (this.props.match.params.page) {
+      this.fetchWallpapersAndSetState(this.props.match.params.page)
+    } else {
+      this.fetchWallpapersAndSetState()
+    }
   }
   
   async fetchWallpapersAndSetState(page = 1) {
@@ -30,6 +30,8 @@ class WallpapersPage extends Component {
       pagination: data.pagination,
       wallpapers: data.wallpapers
     })
+    this.props.history.push(`/bingwallpapers/page/${page}`)
+    window.scrollTo(0, 0)
   }
 
   handlePageChange(e) {
@@ -42,6 +44,10 @@ class WallpapersPage extends Component {
         return <Wallpaper key={wallpaper.id} name={wallpaper.name} desc={wallpaper.desc}/>
       }
     )
+
+    if (!this.state.pagination.current) {
+      return <div></div>
+    }
 
     return (
       <div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Pagination from '../components/Pagination'
 import Wallpaper from '../components/Wallpaper'
+import Api from '../libs/Api'
 
 class WallpapersPage extends Component {
   constructor(props) {
@@ -23,9 +24,7 @@ class WallpapersPage extends Component {
   }
   
   async fetchWallpapersAndSetState(page = 1) {
-    const domain = process.env.REACT_APP_API_URL
-    const response = await fetch(`${domain}/bingwallpapers/page/${page}`)
-    const data = await response.json()
+    const data = await Api().getWallpapers(page)
     this.setState({
       pagination: data.pagination,
       wallpapers: data.wallpapers

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
+import Api from '../libs/Api'
 
 class WallpaperPage extends Component {
   constructor(props) {
     super(props)
-    console.log(props)
 
     this.state = {
       wallpaper: {}
@@ -15,10 +15,7 @@ class WallpaperPage extends Component {
   }
   
   async fetchWallpapersAndSetState(id) {
-    console.log('fetching')
-    const domain = process.env.REACT_APP_API_URL
-    const response = await fetch(`${domain}/bingwallpapers/${id}`)
-    const data = await response.json()
+    const data = await Api().getWallpaper(id)
     this.setState({
       wallpaper: data.wallpaper
     })

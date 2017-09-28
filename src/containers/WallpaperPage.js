@@ -24,6 +24,10 @@ class WallpaperPage extends Component {
   render() {
     const imgSrc = `https://sonurai.com/wallpaper/${this.state.wallpaper.name}.jpg`
 
+    if (!this.state.wallpaper.id) {
+      return false
+    }
+
     return (
       <div>
         <h1 className="title">{this.state.wallpaper.desc}</h1>

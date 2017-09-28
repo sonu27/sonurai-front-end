@@ -6,6 +6,7 @@ import {
   NavLink
 } from 'react-router-dom'
 import WallpapersPage from './WallpapersPage'
+import WallpaperPage from './WallpaperPage'
 
 const Home = () => (
   <div>
@@ -52,6 +53,7 @@ const App = () => (
       <Route exact path="/contact" component={Contact}/>
       <Route exact path="/bingwallpapers" render={props => <WallpapersPage {...props}/>}/>
       <Route exact path="/bingwallpapers/page/:page" render={props => <WallpapersPage {...props}/>}/>
+      <Route exact path="/bingwallpapers/:id" render={props => <WallpaperPage {...props}/>}/>
     </div>
   </Router>
 )

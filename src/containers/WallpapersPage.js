@@ -50,7 +50,7 @@ class WallpapersPage extends Component {
 
     return (
       <div>
-        <h1 className="title">Wallpapers - Page {this.state.pagination.current}</h1>
+        <h1 className="title col">Wallpapers - Page {this.state.pagination.current}</h1>
         {wallpapers}
         <Pagination pagination={this.state.pagination} handlePageChange={this.handlePageChange}/>
       </div>

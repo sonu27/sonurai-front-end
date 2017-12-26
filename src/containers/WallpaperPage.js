@@ -32,9 +32,9 @@ class WallpaperPage extends Component {
     return (
       <div>
         <button onClick={() => this.props.history.goBack()}>Back</button>
-        <h1 className="title">{this.state.wallpaper.desc}</h1>
+        <h1 className="col title">{this.state.wallpaper.desc}</h1>
         <img className="img-fluid" src={imgSrc} alt={this.state.wallpaper.desc}/>
-        <p>{this.state.wallpaper.copyright} - {moment(this.state.wallpaper.date, 'YYYYMMDD').format('MMMM Do YYYY')}</p>
+        <p className='col'>{this.state.wallpaper.copyright} - {moment(this.state.wallpaper.date, 'YYYYMMDD').format('MMMM Do YYYY')}</p>
       </div>
     )
   }

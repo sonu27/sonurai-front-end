@@ -9,7 +9,7 @@ import WallpapersPage from './WallpapersPage'
 import WallpaperPage from './WallpaperPage'
 
 const Home = () => (
-  <div>
+  <div className='col'>
     <h2>Home</h2>
     <ul>
       <li><Link to="/bingwallpapers">Bing Wallpapers</Link></li>
@@ -18,14 +18,14 @@ const Home = () => (
 )
 
 const About = () => (
-  <div>
+  <div className='col'>
     <h2>About</h2>
     <p>Designed and built by Amarjeet Rai</p>
   </div>
 )
 
 const Contact = () => (
-  <div>
+  <div className='col'>
     <h2>Contact</h2>
     <p>You can contact me on Twitter <a href="https://twitter.com/sonu27">@sonu27</a></p>
   </div>
@@ -33,7 +33,7 @@ const Contact = () => (
 
 const App = () => (
   <Router>
-    <div className="container">
+    <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <Link to="/" className="navbar-brand">Sonu Rai</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

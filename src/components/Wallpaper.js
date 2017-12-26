@@ -9,7 +9,7 @@ const Wallpaper = ({id, name, desc}) => {
       <p>
         <Link to={`/bingwallpapers/${id}`}><img className="img-fluid" src={imgSrc} alt={desc}/></Link>
       </p>
-      <p>{desc}</p>
+      <p className='col'>{desc}</p>
     </div>
   )
 }

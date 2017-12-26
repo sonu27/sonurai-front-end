@@ -1,17 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Wallpaper = ({id, name, desc}) => {
+export default ({id, name, desc, copyright}) => {
   const imgSrc = `https://sonurai.com/wallpaper/${name}_th.jpg`
 
   return (
-    <div className="wallpaper">
-      <p>
-        <Link to={`/bingwallpapers/${id}`}><img className="img-fluid" src={imgSrc} alt={desc}/></Link>
-      </p>
-      <p className='col'>{desc}</p>
+    <div className='wallpaper'>
+      <Link to={`/bingwallpapers/${id}`}>
+        <img className='img-fluid' src={imgSrc} alt={desc}/>
+      </Link>
+      <h5 className='col'>{desc}</h5>
     </div>
   )
 }
-
-export default Wallpaper

@@ -40,7 +40,10 @@ class WallpapersPage extends Component {
   render() {
     const wallpapers = this.state.wallpapers.map(
       (wallpaper) => {
-        return <Wallpaper key={wallpaper.id} id={wallpaper.id} name={wallpaper.name} desc={wallpaper.desc}/>
+        return <div>
+          <Wallpaper key={wallpaper.id} id={wallpaper.id} name={wallpaper.name} desc={wallpaper.desc} copyright={wallpaper.copyright}/>
+          <br/>
+        </div>
       }
     )
 

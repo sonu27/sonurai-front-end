@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default ({id, name, desc, copyright}) => {
-  const imgSrc = `https://sonurai.com/wallpaper/${name}_th.jpg`
+  const imgSrc = `https://images.sonurai.com/${name}_th.jpg`
 
   return (
     <div className='wallpaper'>

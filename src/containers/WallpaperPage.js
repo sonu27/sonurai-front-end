@@ -23,7 +23,7 @@ class WallpaperPage extends Component {
   }
 
   render() {
-    const imgSrc = `https://sonurai.com/wallpaper/${this.state.wallpaper.name}.jpg`
+    const imgSrc = `https://images.sonurai.com/${this.state.wallpaper.name}.jpg`
 
     if (!this.state.wallpaper.id) {
       return false

@@ -33,7 +33,7 @@ export default class WallpapersPage extends React.PureComponent {
 
   render() {
     const wallpapers = this.state.wallpapers.map((wallpaper) => (
-      <Wallpaper key={wallpaper.id} id={wallpaper.id} name={wallpaper.name} desc={wallpaper.desc} copyright={wallpaper.copyright}/>
+      <Wallpaper key={wallpaper.id} id={wallpaper.id} name={wallpaper.name} desc={wallpaper.desc} date={wallpaper.date} copyright={wallpaper.copyright}/>
     ))
 
     if (!this.state.pagination.current) {
@@ -42,7 +42,7 @@ export default class WallpapersPage extends React.PureComponent {
 
     return (
       <div className="container-lg px-0">
-        <h1 className="title px-3 px-lg-0">Bing Wallpapers - Page {this.state.pagination.current}</h1>
+        <h1 className="title px-3 px-lg-0">Bing Wallpapers</h1>
         {wallpapers}
         <Pagination pagination={this.state.pagination} handlePageChange={this.handlePageChange}/>
       </div>

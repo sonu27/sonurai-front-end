@@ -27,13 +27,13 @@ export default class WallpapersPage extends React.PureComponent {
     window.scrollTo(0, 0)
   }
 
-  handlePageChange = (e) => {
-    this.fetchWallpapersAndSetState(e.target.value)
+  handlePageChange = (page) => {
+    this.fetchWallpapersAndSetState(page)
   }
 
   render() {
     const wallpapers = this.state.wallpapers.map((wallpaper) => (
-      <Wallpaper key={wallpaper.id} id={wallpaper.id} name={wallpaper.name} desc={wallpaper.desc} date={wallpaper.date} copyright={wallpaper.copyright}/>
+      <Wallpaper key={wallpaper.id} id={wallpaper.id} name={wallpaper.name} desc={wallpaper.desc} date={wallpaper.date} copyright={wallpaper.copyright} />
     ))
 
     if (!this.state.pagination.current) {

@@ -1,10 +1,22 @@
 import React from 'react'
 
+const getUrl = (page) => `/bingwallpapers/page/${page}`
+
 const Pagination = ({pagination, handlePageChange}) => (
   <ul className="col pagination">
-    <li><button value={pagination.prev} onClick={handlePageChange}>{pagination.prev}</button></li>
-    <li><button value={pagination.current} onClick={handlePageChange}>{pagination.current}</button></li>
-    <li><button value={pagination.next} onClick={handlePageChange}>{pagination.next}</button></li>
+    <li className="page-item"><a class="page-link" href={getUrl(pagination.prev)} onClick={(e) => {
+      e.preventDefault()
+      e.target.blur()
+      handlePageChange(pagination.prev)
+    }}>{pagination.prev}</a></li>
+  <li className="page-item active"><a class="page-link" href={getUrl(pagination.current)} onClick={(e) => {
+      e.preventDefault()
+    }}>{pagination.current}</a></li>
+  <li className="page-item"><a class="page-link" href={getUrl(pagination.next)} onClick={(e) => {
+      e.preventDefault()
+      e.target.blur()
+      handlePageChange(pagination.next)
+    }}>{pagination.next}</a></li>
   </ul>
 )
 

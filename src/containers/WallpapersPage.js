@@ -9,6 +9,8 @@ export default class WallpapersPage extends React.PureComponent {
     wallpapers: []
   }
 
+  apiClient = new Api()
+
   componentDidMount() {
     if (this.props.match.params.page) {
       this.fetchWallpapersAndSetState(this.props.match.params.page)
@@ -18,7 +20,7 @@ export default class WallpapersPage extends React.PureComponent {
   }
 
   async fetchWallpapersAndSetState(page = 1) {
-    const data = await Api().getWallpapers(page)
+    const data = await this.apiClient.getWallpapers(page)
     this.setState({
       pagination: data.pagination,
       wallpapers: data.wallpapers

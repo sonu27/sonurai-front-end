@@ -7,12 +7,14 @@ export default class WallpaperPage extends React.PureComponent {
     wallpaper: {}
   }
 
+  apiClient = new Api()
+
   componentDidMount() {
     this.fetchWallpapersAndSetState(this.props.match.params.id)
   }
 
   async fetchWallpapersAndSetState(id) {
-    const data = await Api().getWallpaper(id)
+    const data = await this.apiClient.getWallpaper(id)
     this.setState({
       wallpaper: data.wallpaper
     })

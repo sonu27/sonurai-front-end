@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import moment from 'moment'
 import Api from '../libs/Api'
 
-class WallpaperPage extends Component {
+export default class WallpaperPage extends React.PureComponent {
   state = {
     wallpaper: {}
   }
@@ -38,5 +38,3 @@ class WallpaperPage extends Component {
     )
   }
 }
-
-export default WallpaperPage

@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Pagination from '../components/Pagination'
 import Wallpaper from '../components/Wallpaper'
 import Api from '../libs/Api'
 
-class WallpapersPage extends Component {
+export default class WallpapersPage extends React.PureComponent {
   state = {
     pagination: {},
     wallpapers: []
@@ -54,5 +54,3 @@ class WallpapersPage extends Component {
     )
   }
 }
-
-export default WallpapersPage

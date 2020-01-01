@@ -4,17 +4,11 @@ import Wallpaper from '../components/Wallpaper'
 import Api from '../libs/Api'
 
 class WallpapersPage extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      pagination: {},
-      wallpapers: []
-    }
-
-    this.handlePageChange = this.handlePageChange.bind(this)
+  state = {
+    pagination: {},
+    wallpapers: []
   }
-  
+
   componentDidMount() {
     if (this.props.match.params.page) {
       this.fetchWallpapersAndSetState(this.props.match.params.page)
@@ -22,7 +16,7 @@ class WallpapersPage extends Component {
       this.fetchWallpapersAndSetState()
     }
   }
-  
+
   async fetchWallpapersAndSetState(page = 1) {
     const data = await Api().getWallpapers(page)
     this.setState({
@@ -33,7 +27,7 @@ class WallpapersPage extends Component {
     window.scrollTo(0, 0)
   }
 
-  handlePageChange(e) {
+  handlePageChange = (e) => {
     this.fetchWallpapersAndSetState(e.target.value)
   }
 

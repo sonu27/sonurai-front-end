@@ -3,18 +3,14 @@ import moment from 'moment'
 import Api from '../libs/Api'
 
 class WallpaperPage extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      wallpaper: {}
-    }
+  state = {
+    wallpaper: {}
   }
-  
+
   componentDidMount() {
     this.fetchWallpapersAndSetState(this.props.match.params.id)
   }
-  
+
   async fetchWallpapersAndSetState(id) {
     const data = await Api().getWallpaper(id)
     this.setState({
@@ -23,11 +19,14 @@ class WallpaperPage extends Component {
   }
 
   render() {
-    const imgSrc = `https://images.sonurai.com/${this.state.wallpaper.name}.jpg`
-
-    if (!this.state.wallpaper.id) {
-      return false
+    //todo: send real 404
+    if (!this.state.wallpaper) {
+      return (
+        <div>404 Not found</div>
+      )
     }
+
+    const imgSrc = `https://images.sonurai.com/${this.state.wallpaper.name}.jpg`
 
     return (
       <div>

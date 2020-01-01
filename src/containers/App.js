@@ -9,32 +9,43 @@ import WallpapersPage from './WallpapersPage'
 import WallpaperPage from './WallpaperPage'
 
 const Home = () => (
-  <div className='col'>
-    <h2>Home</h2>
-    <ul>
-      <li><Link to="/bingwallpapers">Bing Wallpapers</Link></li>
-    </ul>
+  <div className="container-lg px-0">
+    <div className="px-3 px-lg-0">
+      <h2>Home</h2>
+      <ul>
+        <li><Link to="/bingwallpapers">Bing Wallpapers</Link></li>
+      </ul>
+    </div>
   </div>
 )
 
 const About = () => (
-  <div className='col'>
-    <h2>About</h2>
-    <p>Designed and built by Amarjeet Rai</p>
+  <div className="container-lg px-0">
+    <div className="px-3 px-lg-0">
+      <h2>About</h2>
+      <p>Designed and built by <a href="https://amarjeet.dev" rel="me">Amarjeet Rai</a></p>
+      <p>
+        <a href="https://github.com/sonu27/" rel="me">GitHub</a><br/>
+        <a href="https://www.linkedin.com/in/amarjeetrai" rel="me">LinkedIn</a><br/>
+        <a href="https://twitter.com/sonu27" title="Twitter @sonu27" rel="me">Twitter</a>
+      </p>
+    </div>
   </div>
 )
 
 const Contact = () => (
-  <div className='col'>
-    <h2>Contact</h2>
-    <p>You can contact me on Twitter <a href="https://twitter.com/sonu27">@sonu27</a></p>
+  <div className="container-lg px-0">
+    <div className="px-3 px-lg-0">
+      <h2>Contact</h2>
+      <p>You can contact me on Twitter <a href="https://twitter.com/sonu27" rel="me">@sonu27</a></p>
+    </div>
   </div>
 )
 
 const App = () => (
   <Router>
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand navbar-dark bg-dark">
+      <div className="container-lg">
         <Link to="/" className="navbar-brand">Sonu Rai</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -46,15 +57,15 @@ const App = () => (
             <NavLink exact to="/contact" className="nav-item nav-link">Contact</NavLink>
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
 
-      <Route exact path="/" component={Home}/>
-      <Route exact path="/about" component={About}/>
-      <Route exact path="/contact" component={Contact}/>
-      <Route exact path="/bingwallpapers" render={props => <WallpapersPage {...props}/>}/>
-      <Route exact path="/bingwallpapers/page/:page" render={props => <WallpapersPage {...props}/>}/>
-      <Route exact path="/bingwallpapers/:id" render={props => <WallpaperPage {...props}/>}/>
-    </div>
+    <Route exact path="/" component={Home}/>
+    <Route exact path="/about" component={About}/>
+    <Route exact path="/contact" component={Contact}/>
+    <Route exact path="/bingwallpapers" render={props => <WallpapersPage {...props}/>}/>
+    <Route exact path="/bingwallpapers/page/:page" render={props => <WallpapersPage {...props}/>}/>
+    <Route exact path="/bingwallpapers/:id" render={props => <WallpaperPage {...props}/>}/>
   </Router>
 )
 

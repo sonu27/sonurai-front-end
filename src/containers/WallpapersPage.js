@@ -32,22 +32,20 @@ export default class WallpapersPage extends React.PureComponent {
   }
 
   render() {
-    const wallpapers = this.state.wallpapers.map(
-      (wallpaper) => {
-        return <div>
-          <Wallpaper key={wallpaper.id} id={wallpaper.id} name={wallpaper.name} desc={wallpaper.desc} copyright={wallpaper.copyright}/>
-          <br/>
-        </div>
-      }
-    )
+    const wallpapers = this.state.wallpapers.map((wallpaper) => (
+      <>
+        <Wallpaper key={wallpaper.id} id={wallpaper.id} name={wallpaper.name} desc={wallpaper.desc} copyright={wallpaper.copyright}/>
+        <br/>
+      </>
+    ))
 
     if (!this.state.pagination.current) {
       return false
     }
 
     return (
-      <div>
-        <h1 className="title col">Wallpapers - Page {this.state.pagination.current}</h1>
+      <div className="container-lg px-0">
+        <h1 className="title px-3 px-lg-0">Wallpapers - Page {this.state.pagination.current}</h1>
         {wallpapers}
         <Pagination pagination={this.state.pagination} handlePageChange={this.handlePageChange}/>
       </div>

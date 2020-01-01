@@ -44,8 +44,8 @@ const Contact = () => (
 
 const App = () => (
   <Router>
-    <nav className="navbar navbar-expand navbar-dark bg-dark">
-      <div className="container-lg">
+    <header className="navbar navbar-expand navbar-dark bg-dark">
+      <nav className="container-lg">
         <Link to="/" className="navbar-brand">Sonu Rai</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -57,8 +57,8 @@ const App = () => (
             <NavLink exact to="/contact" className="nav-item nav-link">Contact</NavLink>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
 
     <Route exact path="/" component={Home}/>
     <Route exact path="/about" component={About}/>
@@ -66,6 +66,10 @@ const App = () => (
     <Route exact path="/bingwallpapers" render={props => <WallpapersPage {...props}/>}/>
     <Route exact path="/bingwallpapers/page/:page" render={props => <WallpapersPage {...props}/>}/>
     <Route exact path="/bingwallpapers/:id" render={props => <WallpaperPage {...props}/>}/>
+
+    <footer className="container-lg px-0">
+      <div className="px-3 px-lg-0">&copy; {new Date().getFullYear()} Amarjeet Rai</div>
+    </footer>
   </Router>
 )
 

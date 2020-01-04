@@ -14,6 +14,7 @@ const Home = () => (
       <h2>Home</h2>
       <ul>
         <li><Link to="/bingwallpapers">Bing Wallpapers</Link></li>
+        <li><a href="http://blog.sonurai.com/" rel="me">Tumblr Blog</a></li>
       </ul>
     </div>
   </div>

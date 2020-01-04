@@ -23,12 +23,19 @@ async function getWallpapers(page) {
 }
 
 async function getWallpaper(id) {
-  return index.getObject(id, attributesToRetrieve)
+  return index.search(
+    {
+      query: '',
+      numericFilters: [`oldId=${id}`],
+      attributesToRetrieve: attributesToRetrieve,
+    }
+  )
+  // return index.getObject(id, attributesToRetrieve)
 }
 
 function toWallpaper(v) {
   return {
-    id: v.objectID,
+    id: v.oldId,
     name: v.name,
     desc: v.description,
     copyright: v.copyright,
@@ -59,7 +66,7 @@ export default class Api {
     const res = await getWallpaper(id)
 
     return {
-      wallpaper: toWallpaper(res),
+      wallpaper: hitsToWallpapers(res.hits)[0],
     }
   }
 }

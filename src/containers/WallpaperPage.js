@@ -14,17 +14,21 @@ export default class WallpaperPage extends React.PureComponent {
   }
 
   async fetchWallpapersAndSetState(id) {
-    const data = await this.apiClient.getWallpaper(id)
-    this.setState({
-      wallpaper: data.wallpaper
-    })
+    try {
+      const data = await this.apiClient.getWallpaper(id)
+      this.setState({
+        wallpaper: data.wallpaper
+      })
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   render() {
     //todo: send real 404
-    if (!this.state.wallpaper) {
+    if (Object.entries(this.state.wallpaper).length === 0 && this.state.wallpaper.constructor === Object) {
       return (
-        <div>404 Not found</div>
+        <div className="container-lg">404 Not found</div>
       )
     }
 

@@ -20,13 +20,17 @@ export default class WallpapersPage extends React.PureComponent {
   }
 
   async fetchWallpapersAndSetState(page = 1) {
-    const data = await this.apiClient.getWallpapers(page)
-    this.setState({
-      pagination: data.pagination,
-      wallpapers: data.wallpapers
-    })
-    this.props.history.push(`/bingwallpapers/page/${page}`)
-    window.scrollTo(0, 0)
+    try {
+      const data = await this.apiClient.getWallpapers(page)
+      this.setState({
+        pagination: data.pagination,
+        wallpapers: data.wallpapers
+      })
+      this.props.history.push(`/bingwallpapers/page/${page}`)
+      window.scrollTo(0, 0)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   handlePageChange = (page) => {

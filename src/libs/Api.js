@@ -3,16 +3,19 @@ import algoliasearch from 'algoliasearch'
 const client = algoliasearch('QAQQSPXMWF', '9d20f264afd11c7c1507a7ab36225b59')
 const index = client.initIndex('prod_wallpapers')
 
+const attributesToRetrieve = [
+  'description',
+  'copyright',
+  'date',
+  'name',
+  'oldId',
+];
+
 async function getWallpapers(page) {
   return index.search(
     {
       query: '',
-      attributesToRetrieve: [
-        'description',
-        'date',
-        'name',
-        'oldId',
-      ],
+      attributesToRetrieve: attributesToRetrieve,
       hitsPerPage: 10,
       page: page - 1,
     }
@@ -20,15 +23,7 @@ async function getWallpapers(page) {
 }
 
 async function getWallpaper(id) {
-  return index.getObject(
-    id,
-    [
-      'description',
-      'date',
-      'name',
-      'oldId',
-    ]
-  )
+  return index.getObject(id, attributesToRetrieve)
 }
 
 function toWallpaper(v) {
@@ -36,6 +31,7 @@ function toWallpaper(v) {
     id: v.objectID,
     name: v.name,
     desc: v.description,
+    copyright: v.copyright,
     date: v.date,
   }
 }
